@@ -1,7 +1,7 @@
 
 // import { IdMap, MockManager, MockRepository } from "medusa-test-utils"
 
-import VideoService from '../video';
+import ProductVideoService from '../product-video';
 
 // manual mocking. Replace with official Medusa test tooling once available
 

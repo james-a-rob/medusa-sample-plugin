@@ -3,7 +3,7 @@ import type {
     MedusaResponse,
 } from "@medusajs/medusa"
 
-import VideoService from "../../../services/video"
+import ProductVideoService from "../../../services/product-video"
 
 // get video id by product id
 // create video. passing in product id
@@ -13,8 +13,8 @@ export const GET = async (
     res: MedusaResponse
 ) => {
     console.log('here in video embed')
-    const videoService = req.scope.resolve<VideoService>(
-        "videoService"
+    const videoService = req.scope.resolve<ProductVideoService>(
+        "productVideoService"
     )
     await videoService.getVideoByProductId()
     // take input product id and url

@@ -5,22 +5,22 @@ import { Repository } from "typeorm"
 
 
 
-import { Video } from '../models/video';
+import { ProductVideo } from '../models/product-video';
 
 export default class VideoService extends TransactionBaseService {
     // ...
-    private videoRepo: Repository<Video>
+    private productVideoRepo: Repository<ProductVideo>
 
     constructor(container) {
         super(container)
-        this.videoRepo = container.manager.getRepository(Video);
+        this.productVideoRepo = container.manager.getRepository(ProductVideo);
         console.log('container.manager', container.manager.find)
     }
 
-    async getVideoByProductId(): Promise<Video> {
-        const found = await this.videoRepo.find()
+    async getVideoByProductId(): Promise<ProductVideo> {
+        const found = await this.productVideoRepo.find()
         console.log('found', found);
-        return new Video
+        return new ProductVideo
 
     }
 }
