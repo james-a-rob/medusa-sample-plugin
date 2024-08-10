@@ -14,6 +14,9 @@ export class ProductVideo extends BaseEntity {
     @Column({ type: "varchar" })
     product_id: string | null
 
+    /**
+     * @apiIgnore
+     */
     @BeforeInsert()
     private beforeInsert(): void {
         this.id = generateEntityId(this.id, "product-video")

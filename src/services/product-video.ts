@@ -7,20 +7,32 @@ import { Repository } from "typeorm"
 
 import { ProductVideo } from '../models/product-video';
 
-export default class VideoService extends TransactionBaseService {
+export default class VideoProductService extends TransactionBaseService {
     // ...
     private productVideoRepo: Repository<ProductVideo>
 
     constructor(container) {
         super(container)
         this.productVideoRepo = container.manager.getRepository(ProductVideo);
-        console.log('container.manager', container.manager.find)
     }
 
-    async getVideoByProductId(): Promise<ProductVideo> {
-        const found = await this.productVideoRepo.find()
-        console.log('found', found);
-        return new ProductVideo
+    async getVideoByProductId(productId: string): Promise<Partial<ProductVideo> & { embedUrl: string }> {
+        const productVideo = await this.productVideoRepo.findOne({ where: { product_id: productId } });
+        if (productVideo) {
+            const response = { ...productVideo, embedUrl: `https://www.youtube.com/embed/${productVideo.video_id}` }
+            return response;
+        }
+    }
+
+    async storeVideo(productId: string, videoId: string) {
+        const newProductVideo = new ProductVideo();
+        newProductVideo.product_id = productId;
+        newProductVideo.video_id = videoId;
+        await this.productVideoRepo.save(newProductVideo);
+
+        return newProductVideo;
 
     }
+
+    // async storeProductVideo(productVideo){} 
 }
