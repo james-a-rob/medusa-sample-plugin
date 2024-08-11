@@ -17,7 +17,7 @@ export default class VideoProductService extends TransactionBaseService {
     }
 
     async getVideoByProductId(productId: string): Promise<Partial<ProductVideo> & { embedUrl: string }> {
-        const productVideo = await this.productVideoRepo.findOne({ where: { product_id: productId } });
+        const productVideo = await this.productVideoRepo.findOne({ where: { product_id: productId }, order: { id: 'DESC' } });
         if (productVideo) {
             const response = { ...productVideo, embedUrl: `https://www.youtube.com/embed/${productVideo.video_id}` }
             return response;

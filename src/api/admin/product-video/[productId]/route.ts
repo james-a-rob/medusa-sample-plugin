@@ -23,7 +23,7 @@ export const GET = async (
     const productVideo = await productVideoService.getVideoByProductId(productId);
 
     if (!productVideo) {
-        return res.status(404).json({ message: "no product video found" })
+        return res.status(200).json(null)
     }
 
     res.json(productVideo);
@@ -43,8 +43,8 @@ export const POST = async (
     )
     const newProductVideo = await productVideoService.storeVideo(productId, videoId);
     if (!newProductVideo) {
-        return res.status(404).json({ message: "failed to create product video" });
+        return res.status(500).json({ message: "failed to create product video" });
     }
-    res.json(newProductVideo)
+    res.json(newProductVideo);
 
 }

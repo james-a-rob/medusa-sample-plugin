@@ -4,44 +4,31 @@ An intetionally simple Medusa JS plugin. Useful for learning how Medusa plugins 
 Plugin allows Youtube video to be displayed on product pages.
 
 ## Includes
-  - Admin UI widget
+  - Admin UI widget [Link to code]
   - New entity in DB
-  - CRUD admin operations
-  - Endpoint to make video available on a storefront
-  - tests examples
+  - Admin endpoints
+  - Store endpoint
+  - Tests for backend and admin UI widget 
+  - Working build and bundle config
 
 ## 
-IMAGE/GIF
-Go to youtube vide -> grab video id -> add to product via dashboard -> see video in storefront
+![gif](medusa-sample-plugin.gif)
+
 
 
 
 ## Usage
-
-### Config to add to backend Medusa project using plugin
+Plugin can be added to a Medusa backend in the usual way. Link to docs
 medusa-config.js
 
-`` 
+```
 const plugins = [
   // ...
   {
     resolve: `medusa-sample-plugin`,
     options: {
-      // other options
       enableUI: true,
     },
   },
 ]
-``
-
-### Example Showing video in a storefront
-``
-calling the store endpoint
-fetch('store/video-embed/product-id')
-``
-product-page.ts
-``
-<iframe width="420" height="315"
-src="https://www.youtube.com/embed/tgbNymZ7vqY">
-</iframe>
-``
+```
