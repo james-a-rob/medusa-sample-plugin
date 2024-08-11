@@ -18,7 +18,7 @@ This plugin enables Youtube videos to be added to product pages via the admin da
 
 
 ## Usage
-Plugin can be added to a Medusa backend in the usual way. Link to docs
+Plugin can be added to a Medusa backend in [the usual way](https://docs.medusajs.com/development/plugins/create#plugin-options).
 medusa-config.js
 
 ```
