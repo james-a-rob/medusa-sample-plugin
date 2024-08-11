@@ -4,16 +4,17 @@ An intetionally simple Medusa JS plugin. Useful for learning how Medusa plugins 
 This plugin enables Youtube videos to be added to product pages via the admin dashboard.
 
 ## Includes
-  - Admin UI widget [Link to code]
-  - New entity in DB
-  - Service to query DB
-  - Admin endpoints
-  - Store endpoint
-  - Tests for backend and admin UI widget 
-  - Working build and bundle config
+  - [Admin UI widget](src/admin/widgets/product-video.tsx)
+  - [New entity in DB](src/models/product-video.ts)
+  - [Service to query DB](src/services/product-video.ts)
+  - [Admin endpoints](src/api/admin/product-video/[productId]/route.ts)
+  - [Store endpoint](src/api/store/product-video/[productId]/route.ts)
+  - [Tests for backend](src/services/__tests__/video.spec.ts) 
+  - [Test for admin UI widget](src/admin/__tests__/widgets/product-video.spec.tsx) 
+  - [Working build and bundle config](package.json)
 
 ## 
-![gif](medusa-sample-plugin.gif)
+<img src="medusa-sample-plugin.gif " width="100%" >
 
 
 ## Usage
